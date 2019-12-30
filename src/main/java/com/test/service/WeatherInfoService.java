@@ -22,7 +22,7 @@ public class WeatherInfoService {
      * @param: weatherInfo
      * @return: count
      * @auther: zzh
-     * @date: 2019-08-18 22:34
+     * @date:
      */
     public int insertWeatherLive(WeatherLiveInfo weatherLiveInfo){
         Integer count = null;
@@ -31,15 +31,54 @@ public class WeatherInfoService {
     }
 
     /**
+     * 功能描述: 插入实时天气信息
+     * @param: weatherLiveInfo
+     * @return: count
+     * @auther: zzh
+     * @date:
+     */
+    public int updateWeatherLive(WeatherLiveInfo weatherLiveInfo){
+        Integer count = null;
+        count = mapper.updateWeatherLive(weatherLiveInfo);
+        return count;
+    }
+
+    /**
+     * 功能描述: 删除实时天气信息
+     * @param: times
+     * @return: count
+     * @auther: zzh
+     * @date:
+     */
+    public int deleteWeatherLive(String times){
+        Integer count = null;
+        count = mapper.deleteWeatherLive(times);
+        return count;
+    }
+
+    /**
      * 功能描述: 插入天气晴雨信息
      * @param: weatherInfo
      * @return: count
      * @auther: zzh
-     * @date: 2019-08-18 22:34
+     * @date:
      */
     public int insertWeather(WeatherInfo weatherInfo){
         Integer count = null;
         count = mapper.insertWeather(weatherInfo);
+        return count;
+    }
+
+    /**
+     * 功能描述: 删除天气晴雨信息
+     * @param: times
+     * @return: count
+     * @auther: zzh
+     * @date:
+     */
+    public int deleteWeather(String times){
+        Integer count = null;
+        count = mapper.deleteWeather(times);
         return count;
     }
 

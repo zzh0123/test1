@@ -6,19 +6,17 @@ public class WeatherLiveInfo implements Serializable {
     private String weatherLiveId; // 实时天气id stationCode + times,
     private String weatherStationCode; // "0",
     private String times; // 时间
-    private String Year; // 年
-    private String Mon; // 月,
-    private String Day; // 日
-    private String Hour; // 时
-    private String Min; // 分
 
-    private String PRE; // 降水量
-    private String WIN_D_Avg_10mi; // 10分钟平均风向
-    private String WIN_S_Avg_10mi; // 10分钟平均风速
-    private String WIN_S_Max; // 最大风速
-    private String GST; // 地面温度
-    private String GST_Max; // 最高地面温度
-    private String GST_Min; // 最低地面温度
+    private String TEM; //温度/气温
+    private String RHU; //相对湿度
+    private String GST; //地面温度
+    private String WIN_S_Max; //最大风速
+    private String WIN_D_Gust_Max; //最大阵风风向
+    private String TEM_Max; //最高气温
+    private String TEM_Min; //最低气温
+    private String V13013; //积雪深度计算值
+    private String PRE_1h; //过去1小时降水量
+    private String VIS_HOR_1MI; //1分钟平均水平能见度
 
     public String getWeatherLiveId() {
         return weatherLiveId;
@@ -44,76 +42,20 @@ public class WeatherLiveInfo implements Serializable {
         this.times = times;
     }
 
-    public String getYear() {
-        return Year;
+    public String getTEM() {
+        return TEM;
     }
 
-    public void setYear(String year) {
-        Year = year;
+    public void setTEM(String TEM) {
+        this.TEM = TEM;
     }
 
-    public String getMon() {
-        return Mon;
+    public String getRHU() {
+        return RHU;
     }
 
-    public void setMon(String mon) {
-        Mon = mon;
-    }
-
-    public String getDay() {
-        return Day;
-    }
-
-    public void setDay(String day) {
-        Day = day;
-    }
-
-    public String getHour() {
-        return Hour;
-    }
-
-    public void setHour(String hour) {
-        Hour = hour;
-    }
-
-    public String getMin() {
-        return Min;
-    }
-
-    public void setMin(String min) {
-        Min = min;
-    }
-
-    public String getPRE() {
-        return PRE;
-    }
-
-    public void setPRE(String PRE) {
-        this.PRE = PRE;
-    }
-
-    public String getWIN_D_Avg_10mi() {
-        return WIN_D_Avg_10mi;
-    }
-
-    public void setWIN_D_Avg_10mi(String WIN_D_Avg_10mi) {
-        this.WIN_D_Avg_10mi = WIN_D_Avg_10mi;
-    }
-
-    public String getWIN_S_Avg_10mi() {
-        return WIN_S_Avg_10mi;
-    }
-
-    public void setWIN_S_Avg_10mi(String WIN_S_Avg_10mi) {
-        this.WIN_S_Avg_10mi = WIN_S_Avg_10mi;
-    }
-
-    public String getWIN_S_Max() {
-        return WIN_S_Max;
-    }
-
-    public void setWIN_S_Max(String WIN_S_Max) {
-        this.WIN_S_Max = WIN_S_Max;
+    public void setRHU(String RHU) {
+        this.RHU = RHU;
     }
 
     public String getGST() {
@@ -124,19 +66,59 @@ public class WeatherLiveInfo implements Serializable {
         this.GST = GST;
     }
 
-    public String getGST_Max() {
-        return GST_Max;
+    public String getWIN_S_Max() {
+        return WIN_S_Max;
     }
 
-    public void setGST_Max(String GST_Max) {
-        this.GST_Max = GST_Max;
+    public void setWIN_S_Max(String WIN_S_Max) {
+        this.WIN_S_Max = WIN_S_Max;
     }
 
-    public String getGST_Min() {
-        return GST_Min;
+    public String getWIN_D_Gust_Max() {
+        return WIN_D_Gust_Max;
     }
 
-    public void setGST_Min(String GST_Min) {
-        this.GST_Min = GST_Min;
+    public void setWIN_D_Gust_Max(String WIN_D_Gust_Max) {
+        this.WIN_D_Gust_Max = WIN_D_Gust_Max;
+    }
+
+    public String getTEM_Max() {
+        return TEM_Max;
+    }
+
+    public void setTEM_Max(String TEM_Max) {
+        this.TEM_Max = TEM_Max;
+    }
+
+    public String getTEM_Min() {
+        return TEM_Min;
+    }
+
+    public void setTEM_Min(String TEM_Min) {
+        this.TEM_Min = TEM_Min;
+    }
+
+    public String getV13013() {
+        return V13013;
+    }
+
+    public void setV13013(String v13013) {
+        V13013 = v13013;
+    }
+
+    public String getPRE_1h() {
+        return PRE_1h;
+    }
+
+    public void setPRE_1h(String PRE_1h) {
+        this.PRE_1h = PRE_1h;
+    }
+
+    public String getVIS_HOR_1MI() {
+        return VIS_HOR_1MI;
+    }
+
+    public void setVIS_HOR_1MI(String VIS_HOR_1MI) {
+        this.VIS_HOR_1MI = VIS_HOR_1MI;
     }
 }

@@ -11,5 +11,11 @@ public interface WeatherInfoMapper{
 
     int insertWeatherLive(WeatherLiveInfo weatherLiveInfo);
 
+    int updateWeatherLive(WeatherLiveInfo weatherLiveInfo);
+
+    int deleteWeatherLive(String times);
+
     int insertWeather(WeatherInfo weatherInfo);
+
+    int deleteWeather(String times);
 }

@@ -2,16 +2,46 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.test.mapper.WeatherInfoMapper">
 
-  <insert id="insertWeatherLive" useGeneratedKeys="true" keyProperty="id" parameterType="com.test.entity.WeatherLiveInfo">
-    insert into BaoshenWeatherLive (weatherLiveId, weatherStationCode, times, Year, Mon, Day, Hour, Min,
-    PRE, WIN_D_Avg_10mi, WIN_S_Avg_10mi, WIN_S_Max, GST, GST_Max, GST_Min)
-    values(#{weatherLiveId}, #{weatherStationCode}, #{times}, #{Year}, #{Mon}, #{Day}, #{Hour}, #{Min},
-     #{PRE}, #{WIN_D_Avg_10mi}, #{WIN_S_Avg_10mi}, #{WIN_S_Max}, #{GST}, #{GST_Max}, #{GST_Min})
-  </insert>
+    <!--  BaoshenWeatherLive  -->
+  <!-- 插入实时天气每5分钟 -->
+    <insert id="insertWeatherLive" parameterType="com.test.entity.WeatherLiveInfo">
+    insert into BaoshenWeatherLive (weatherLiveId, weatherStationCode, times, TEM, RHU, GST, WIN_S_Max, WIN_D_Gust_Max,
+    TEM_Max, TEM_Min, V13013, PRE_1h, VIS_HOR_1MI)
+    values(#{weatherLiveId}, #{weatherStationCode}, #{times}, #{TEM}, #{RHU}, #{GST}, #{WIN_S_Max}, #{WIN_D_Gust_Max},
+     #{TEM_Max}, #{TEM_Min}, #{V13013}, #{PRE_1h}, #{VIS_HOR_1MI})
+    </insert>
 
-  <insert id="insertWeather" useGeneratedKeys="true" keyProperty="id" parameterType="com.test.entity.WeatherInfo">
+    <!-- 更新实时天气每5分钟 -->
+    <update id="updateWeatherLive" parameterType="com.test.entity.WeatherLiveInfo">
+	update BaoshenWeatherLive set times=#{times}, TEM=#{TEM}, RHU=#{RHU} , GST=#{GST}, WIN_S_Max=#{WIN_S_Max} , WIN_D_Gust_Max=#{WIN_D_Gust_Max},
+	 TEM_Max=#{TEM_Max}, TEM_Min=#{TEM_Min} , V13013=#{V13013}, PRE_1h=#{PRE_1h} , VIS_HOR_1MI=#{VIS_HOR_1MI}
+	where weatherStationCode=#{weatherStationCode}
+	</update>
+
+    <!-- 删除实时天气小于某个时间 -->
+    <delete id="deleteWeatherLive" parameterType="String">
+		delete from BaoshenWeatherLive
+        <where>
+            <if test="times != null">
+                times &lt; #{times}
+            </if>
+        </where>
+	</delete>
+
+    <!--  BaoshenWeather  -->
+    <insert id="insertWeather" parameterType="com.test.entity.WeatherInfo">
     insert into BaoshenWeather (weatherId, nationalWeatherStationCode, times, Year, Mon, Day, Hour, WEP_Now)
     values(#{weatherId}, #{nationalWeatherStationCode}, #{times}, #{Year}, #{Mon}, #{Day}, #{Hour}, #{WEP_Now})
-  </insert>
+    </insert>
+
+    <!-- 删除实时天气晴雨小于某个时间 -->
+    <delete id="deleteWeather" parameterType="String">
+        delete from BaoshenWeather
+        <where>
+            <if test="times != null">
+                times &lt; #{times}
+            </if>
+        </where>
+    </delete>
 
 </mapper>

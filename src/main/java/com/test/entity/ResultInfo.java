@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 /**
  * @author zzh
- * @create 2019-08-18 22:01
+ * @create
  * @desc 请求结果
  */
-public class Result implements Serializable {
+public class ResultInfo implements Serializable {
 
     private String returnCode; //返回码
     private String returnMessage; //返回信息
